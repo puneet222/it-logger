@@ -1,0 +1,42 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Machine ABC is down",
+      "attention": false,
+      "date": "1-2-2018",
+      "tech": "Puneet Aggarwal"
+    },
+    {
+      "id": 2,
+      "message": "Machine BCD is down",
+      "attention": false,
+      "date": "1-2-2018",
+      "tech": "Harish Saini"
+    },
+    {
+      "id": 3,
+      "message": "Machine ABC is fucked",
+      "attention": true,
+      "date": "1-2-2018",
+      "tech": "Puneet Aggarwal"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstName": "Puneet",
+      "lastName": "Aggarwal"
+    },
+    {
+      "id": 2,
+      "firstName": "Harish",
+      "lastName": "Saini"
+    },
+    {
+      "id": 3,
+      "firstName": "Sim",
+      "lastName": "SIM"
+    }
+  ]
+}
