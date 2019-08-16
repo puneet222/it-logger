@@ -5,6 +5,8 @@ import "./App.css";
 
 import SearchBar from "./components/layout/SearchBar";
 import Logs from "./components/logs/Logs";
+import AddBtn from "./components/layout/AddBtn";
+import AddLogModal from "./components/logs/AddLogModal";
 
 function App() {
   useEffect(() => {
@@ -14,7 +16,11 @@ function App() {
   return (
     <div className="App">
       <SearchBar />
-      <Logs />
+      <div className="container">
+        <Logs />
+        <AddBtn />
+        <AddLogModal />
+      </div>
     </div>
   );
 }
