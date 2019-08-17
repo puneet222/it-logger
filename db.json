@@ -1,25 +1,16 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Machine ABC is down",
-      "attention": false,
-      "date": "1-2-2018",
-      "tech": "Puneet Aggarwal"
-    },
-    {
-      "id": 2,
-      "message": "Machine BCD is down",
-      "attention": false,
-      "date": "1-2-2018",
-      "tech": "Harish Saini"
-    },
-    {
-      "id": 3,
       "message": "Machine ABC is fucked",
+      "tech": "Puneet Aggarwal",
       "attention": true,
-      "date": "1-2-2018",
-      "tech": "Puneet Aggarwal"
+      "id": 1
+    },
+    {
+      "message": "Machine #332 is not responding",
+      "tech": "Harish Saini",
+      "attention": true,
+      "id": 2
     }
   ],
   "techs": [

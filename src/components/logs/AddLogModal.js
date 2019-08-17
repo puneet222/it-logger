@@ -1,10 +1,19 @@
 import React, { useState } from "react";
+import { addLog } from "../../action/logAction";
+import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize.min.js";
+import PropTypes from "prop-types";
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
   const [tech, setTech] = useState("");
   const [attention, setAttention] = useState(false);
+
+  const clearForm = () => {
+    setMessage("");
+    setTech("");
+    setAttention(false);
+  };
 
   const onSubmit = e => {
     if (message === "" || tech === "") {
@@ -12,7 +21,17 @@ const AddLogModal = () => {
         html: "Please fill the fields",
         classes: "rounded"
       });
+      return;
     }
+    addLog({
+      message,
+      tech,
+      attention
+    });
+    M.toast({
+      html: `Log Added by ${tech}`
+    });
+    clearForm();
   };
 
   return (
@@ -60,4 +79,11 @@ const AddLogModal = () => {
   );
 };
 
-export default AddLogModal;
+AddLogModal.propTypes = {
+  addLog: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { addLog }
+)(AddLogModal);
