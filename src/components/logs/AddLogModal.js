@@ -3,6 +3,7 @@ import { addLog } from "../../action/logAction";
 import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize.min.js";
 import PropTypes from "prop-types";
+import TechSelectOptions from "../techs/TechSelectOptions";
 
 const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
@@ -49,12 +50,16 @@ const AddLogModal = ({ addLog }) => {
           <label htmlFor="message">Message</label>
         </div>
         <div className="input-field">
-          <select value={tech} onChange={e => setTech(e.target.value)}>
+          <select
+            name="tech"
+            value={tech}
+            className="browser-default"
+            onChange={e => setTech(e.target.value)}
+          >
             <option value="" disabled>
               Select Tech
             </option>
-            <option value="Puneet Aggarwal">Puneet Aggarwal</option>
-            <option value="Harish Saini">Harish Saini</option>
+            <TechSelectOptions />
           </select>
         </div>
         <label>
@@ -70,7 +75,10 @@ const AddLogModal = ({ addLog }) => {
       </div>
       <div className="modal-footer">
         <div className="secondary-content">
-          <a className="waves-effect blue waves-light btn" onClick={onSubmit}>
+          <a
+            className="modal-close waves-effect blue waves-light btn"
+            onClick={onSubmit}
+          >
             Enter
           </a>
         </div>

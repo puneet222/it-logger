@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addTech } from "../../action/techAction";
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTech }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -12,7 +15,13 @@ const AddTechModal = () => {
         classes: "rounded"
       });
     } else {
-      console.log(firstName, lastName);
+      addTech({
+        firstName,
+        lastName
+      });
+      M.toast({
+        html: `${firstName} is added as a Tech`
+      });
     }
   };
 
@@ -41,7 +50,10 @@ const AddTechModal = () => {
       </div>
       <div className="modal-footer">
         <div className="secondary-content">
-          <a className="waves-effect blue waves-light btn" onClick={onSubmit}>
+          <a
+            className="modal-close waves-effect blue waves-light btn"
+            onClick={onSubmit}
+          >
             Enter
           </a>
         </div>
@@ -50,4 +62,11 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+AddTechModal.propTypes = {
+  addTech: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { addTech }
+)(AddTechModal);
