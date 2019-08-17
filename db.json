@@ -1,16 +1,16 @@
 {
   "logs": [
     {
-      "message": "Machine ABC is fucked",
+      "id": 1,
+      "message": "Machine ABC is fucked bad",
       "tech": "Puneet Aggarwal",
-      "attention": true,
-      "id": 1
+      "attention": true
     },
     {
       "message": "Machine #332 is not responding",
       "tech": "Harish Saini",
-      "attention": true,
-      "id": 2
+      "attention": false,
+      "id": 3
     }
   ],
   "techs": [

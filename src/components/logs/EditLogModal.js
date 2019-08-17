@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import { connect } from "react-redux";
+import { editLog } from "../../action/logAction";
+import PropTypes from "prop-types";
 
-const EditLogModal = () => {
+const EditLogModal = ({ current, editLog }) => {
   const [message, setMessage] = useState("");
   const [tech, setTech] = useState("");
   const [attention, setAttention] = useState(false);
+
+  useEffect(() => {
+    if (current) {
+      const { message, tech, attention, id } = current;
+      setMessage(message);
+      setAttention(attention);
+      setTech(tech);
+    }
+  }, [current]);
 
   const onSubmit = e => {
     if (message === "" || tech === "") {
@@ -13,6 +25,13 @@ const EditLogModal = () => {
         classes: "rounded"
       });
     }
+    editLog({
+      id: current.id,
+      message,
+      tech,
+      attention,
+      date: new Date()
+    });
   };
 
   return (
@@ -51,7 +70,10 @@ const EditLogModal = () => {
       </div>
       <div className="modal-footer">
         <div className="secondary-content">
-          <a className="waves-effect blue waves-light btn" onClick={onSubmit}>
+          <a
+            className="modal-close waves-effect blue waves-light btn"
+            onClick={onSubmit}
+          >
             Enter
           </a>
         </div>
@@ -60,4 +82,16 @@ const EditLogModal = () => {
   );
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+  current: PropTypes.object,
+  editLog: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  current: state.log.current
+});
+
+export default connect(
+  mapStateToProps,
+  { editLog }
+)(EditLogModal);
