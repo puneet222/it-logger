@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is basic react redux project made which learning from Udemy
 
 ## Available Scripts
 
@@ -11,6 +11,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+### `npm run json-server`
+
+Runs the local json-server of the App on port 5000 to run the APIs
+
+### `npm run dev`
+
+This command concurrently runs Client Side Server and json server
+Basically this command with start the complete application
 
 ### `npm test`
 
