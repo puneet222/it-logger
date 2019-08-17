@@ -5,3 +5,4 @@ export const ADD_LOG = "ADD_LOG";
 export const DELETE_LOG = "DELETE_LOG";
 export const EDIT_LOG = "EDIT_LOG";
 export const SET_CURRENT_LOG = "SET_CURRENT_LOG";
+export const SEARCH_LOGS = "SEARCH_LOGS";
