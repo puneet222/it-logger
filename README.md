@@ -1,4 +1,4 @@
-This is basic react redux project made which learning from Udemy
+This is a basic react redux project made which learning from Udemy
 
 ## Available Scripts
 
